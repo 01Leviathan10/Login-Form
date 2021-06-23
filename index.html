@@ -3,10 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Assigment2/font-awesome-4.7.0/css/font-awesome.css">
     <title>Assignment 2 - Website Building</title>
+    <script src="https://kit.fontawesome.com/93f09287ca.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
     <style>
         body {
             box-sizing: border-box;
@@ -16,10 +17,12 @@
         #login-container {
             width: 460px;
             margin: 0 auto;
+
         }
 
-        s form label,
+        form label,
         form input {
+
             width: 100%;
             box-sizing: border-box;
         }
@@ -35,25 +38,78 @@
         form div {
             margin: 16px 0px;
         }
+
+        #username {
+            position: relative;
+        }
+
+        input {
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        #id-container {
+            max-width: 640px;
+            background: #fff;
+            margin: 0 auto;
+            padding: 15px 25px;
+            box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+        }
+
+        .inputWithIcon input {
+            padding-left: 10px;
+
+        }
+
+        .inputWithIcon {
+            position: relative;
+        }
+
+        .inputWithIcon i {
+            position: absolute;
+            right: 5px;
+            top: 20px;
+            padding: 9px 8px;
+            font-size: 20px;
+        }
+
+        .fa-check {
+            color: green;
+        }
+
+        .fa-times {
+            color: red;
+        }
     </style>
 </head>
-<div id="login-container">
-    <form>
-        <div class="inputWithIcon">
-            <label for="username">Username:</label>
-            <input id="username" type="text">
-            <i id="usr-icon" class=""></i>
-        </div>
-        <div class="inputWithIcon">
-            <label for="password">Password:</label>
-            <input id="password" type="password">
-            <i id="pass-icon" class=""></i>
-        </div>
-        <input id="submit" type="submit" value="Login">
-    </form>
-</div>
 
 <body>
+
+    <div id="login-container">
+
+        <form>
+            <div class="inputWithIcon">
+                <label for="username">Username:</label>
+                <input id="username" type="text">
+                <i id="usr-icon" class=""></i>
+            </div>
+
+            <div class="inputWithIcon">
+                <label for="password">Password:</label>
+                <input id="password" type="password">
+                <i id="pass-icon" class=""></i>
+            </div>
+
+            <input id="submit" type="submit" value="Login">
+
+
+        </form>
+
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+
     <script>
         let userBox = document.getElementById("username");
         let passBox = document.getElementById("password");
@@ -81,9 +137,6 @@
             var paragraph = document.createElement("p");
             element.appendChild(paragraph);
 
-
-
-            console.log(userName);
             if (userName == "new_user") {
                 userBox.style.border = "3px solid green";
                 icon1.classList.add("fas");
@@ -96,7 +149,6 @@
                     paragraph.appendChild(emptyUser);
                 } else {
                     paragraph.appendChild(userText);
-                    paragraph.removeChild(emptyUser);
                 }
 
             }
@@ -113,19 +165,16 @@
                     paragraph.appendChild(emptyPass);
                 } else {
                     paragraph.appendChild(passText);
-                    paragraph.removeChild(emptyPass)
                 }
             }
 
             if (userName == "new_user" && password == "123456789") {
                 paragraph.appendChild(success);
-                paragraph.removeChild(passText);
-                paragraph.removeChild(emptyPass);
-                paragraph.removeChild(userText);
-                paragraph.removeChild(emptyUser);
             }
+
         });
     </script>
+
 </body>
 
 </html>
